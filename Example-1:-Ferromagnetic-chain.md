@@ -3,7 +3,6 @@ https://github.com/SpinWaveGenie/SpinWaveGenie/tree/master/examples/FMChain
 
 Dispersion.cpp
 ```cpp
-#define _USE_MATH_DEFINES
 #include <cmath>
 #include <string>
 #include "SpinWaveGenie/SpinWaveGenie.h"
@@ -11,25 +10,39 @@ Dispersion.cpp
 using namespace std;
 using namespace SpinWaveGenie;
 
-int main()
+int main(int argc, const char* argv[])
 {
+    // Cell object stores the basis vectors and Sublattice objects
     Cell cell;
+    // set a,b,c,alpha,beta,gamma in units of Angstroms, Degrees
     cell.setBasisVectors(1.0,10.0,10.0,90.0,90.0,90.0);
-    
+
     Sublattice spin0;
+    // each Sublattice contains:
+    //   a unique name,
     string name0 = "Spin0";
     spin0.setName(name0);
+    //   type (used to calculate the magnetic form factor)
     spin0.setType("NONE");
+    //  magnetic moment (magnitude,theta (radians), phi (radians))
     spin0.setMoment(1.0,0.0,0.0);
+    //  add sublattice to Cell cell.
     cell.addSublattice(spin0);
+    // add atom to sublattice name1 at position (0,0.5,0) in reduced lattice units.
     cell.addAtom(name0,0.0,0.0,0.0);
 
+    // add Cell cell to the builder
     SpinWaveBuilder builder(cell);
     
+    // defining interactions.
     InteractionFactory interactions;
     
+    // Get exchange interaction named "J" with value "1.0" between sublattices name0 and name0.
+    // limit atoms to those between 0.9 and 1.1 angstroms.
+    // pass this interaction to the builder.
     builder.addInteraction(interactions.getExchange("J",1.0,name0,name0,0.9,1.1));
 
+    //return SpinWave object containing the cell, sublattices and interactions.
     SpinWave test = builder.createElement();
     
     PointsAlongLine Line;
