@@ -1,4 +1,4 @@
-example files at https://github.com/SpinWaveGenie/SpinWaveGenie/tree/master/examples/Villain
+example files are [here](Villain)
 
 reference: http://iopscience.iop.org/0953-8984/21/21/216001
 
