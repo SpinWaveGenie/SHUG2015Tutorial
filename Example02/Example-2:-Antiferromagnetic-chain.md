@@ -1,5 +1,7 @@
 example files are at https://github.com/SpinWaveGenie/SpinWaveGenie/tree/master/examples/AFMChain
 
+![Image of antiferromagnetic chain](AFMChain.png)
+
 Dispersion.cpp
 ```cpp
 #define _USE_MATH_DEFINES
