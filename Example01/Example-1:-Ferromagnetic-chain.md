@@ -1,6 +1,8 @@
 example files are at 
 https://github.com/SpinWaveGenie/SpinWaveGenie/tree/master/examples/FMChain
 
+![Image Ferromagnetic chain](FMChain.png)
+
 Dispersion.cpp
 ```cpp
 #include <cmath>
