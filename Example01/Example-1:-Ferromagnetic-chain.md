@@ -1,5 +1,4 @@
-example files are at 
-https://github.com/SpinWaveGenie/SpinWaveGenie/tree/master/examples/FMChain
+example files are [here](FMChain)
 
 ![Image Ferromagnetic chain](FMChain.png)
 
