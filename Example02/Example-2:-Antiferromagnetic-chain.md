@@ -1,4 +1,4 @@
-example files are at https://github.com/SpinWaveGenie/SpinWaveGenie/tree/master/examples/AFMChain
+example files are [here](AFMChain)
 
 ![Image of antiferromagnetic chain](AFMChain.png)
 
