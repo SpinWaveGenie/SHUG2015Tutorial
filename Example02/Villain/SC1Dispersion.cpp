@@ -6,11 +6,9 @@
 using namespace std;
 using namespace SpinWaveGenie;
 
-SpinWaveBuilder getBuilder(double theta_a, double theta_b)
+SpinWaveBuilder getBuilder(double theta_a, double theta_b, double gamma)
 {
-    double gamma,eta,J;
-    
-    gamma = 1.0;
+    double eta,J;
     eta = 4.0;
     J = 1.0;
     
@@ -62,13 +60,14 @@ SpinWaveBuilder getBuilder(double theta_a, double theta_b)
     
 }
 
-double myfunc(const std::vector<double> &x, std::vector<double> & /*grad*/, void * /*my_func_data*/)
+double myfunc(const std::vector<double> &x, std::vector<double> & /*grad*/, void * data)
 {
-    SpinWaveBuilder builder = getBuilder(x[0],x[1]);
+    double *gamma = reinterpret_cast<double*>(data);
+    SpinWaveBuilder builder = getBuilder(x[0],x[1],*gamma);
     return builder.getEnergy();
 }
 
-std::vector<double> findAngles()
+std::vector<double> findAngles(double gamma)
 {
     
     double minf = 0.0;
@@ -81,9 +80,9 @@ std::vector<double> findAngles()
     opt.set_lower_bounds(lb);
     
     opt.set_ftol_abs(1.0e-13);
-    opt.set_maxeval(5000);
+    opt.set_maxeval(50000000);
     
-    opt.set_min_objective(myfunc,NULL);
+    opt.set_min_objective(myfunc,&gamma);
     opt.optimize(thetaphi,minf);
     
     return thetaphi;
@@ -92,26 +91,33 @@ std::vector<double> findAngles()
 int main()
 {
     
-    vector<double> x = findAngles();
-    cout << x[0] << " " << x[1] << endl;
     
-    SpinWaveBuilder builder = getBuilder(x[0], x[1]);
-    SpinWave test = builder.createElement();
+    for(int i = 0; i<5;++i)
+    {
+      vector<double> x = findAngles(static_cast<double>(i));
+      cout << x[0] << " " << x[1]-M_PI_2 << endl;
     
-    PointsAlongLine Line;
-    Line.setFirstPoint(0.0,0.0,0.0);
-    Line.setFinalPoint(0.0,1.0,0.0);
-    Line.setNumberPoints(101);
-    ThreeVectors<double> kPoints = Line.getPoints();
+      SpinWaveBuilder builder = getBuilder(x[0], x[1],static_cast<double>(i));
+      SpinWave test = builder.createElement();
     
-    SpinWaveDispersion dispersion;
-    dispersion.setFilename("SC1Chain.txt");
-    dispersion.setGenie(test);
-    dispersion.setPoints(kPoints);
+      PointsAlongLine Line;
+      Line.setFirstPoint(1.0,0.0,0.0);
+      Line.setFinalPoint(0.0,0.0,0.0);
+      Line.setNumberPoints(101);
+      ThreeVectors<double> points100 = Line.getPoints();
     
-    dispersion.save();
+      Line.setFirstPoint(0.0,0.0,0.0);
+      Line.setFinalPoint(0.0,1.0,0.0);
+      Line.setNumberPoints(101);
+      ThreeVectors<double> points010 = Line.getPoints();
     
-
+      SpinWaveDispersion dispersion;
+      dispersion.setFilename("SC1Chain_"+std::to_string(i)+".txt");
+      dispersion.setGenie(test);
+      dispersion.setPoints(points100);
+      dispersion.setPoints(points010);
     
+      dispersion.save();
+    }
     return 0;
 }
