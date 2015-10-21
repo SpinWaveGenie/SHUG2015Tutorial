@@ -66,6 +66,8 @@ int main(int argc, const char* argv[])
     return 0;
 }
 ```
+Please examine "FMChain.txt". Each line is of the form. 
+  H, K, L, (energies), (intensities)
 
 TwoDimensionalCut.cpp
 ```cpp
@@ -79,14 +81,19 @@ TwoDimensionalCut.cpp
     Line.setNumberPoints(401);
     ThreeVectors<double> kPoints = Line.getPoints();
     
-    // 
+    // Specify energy values for the calculation.
+    // min (meV), max (meV), number of points
     Energies energies(0.0, 5.0, 401);
     
+    // Define a Gaussian in energy
     OneDimensionalFactory factory;
+    // FWHM (meV), tolerance (meV)
     auto gauss = factory.getGaussian(0.25,1.0e-5);
     
-    unique_ptr<SpinWavePlot> res(new EnergyResolutionFunction(move(gauss), SW,energies));
+    // Convolute results with Gaussian function described earlier.
+    unique_ptr<SpinWavePlot> res(memory::make_unique<EnergyResolutionFunction>(move(gauss), SW,energies));
     
+    // Helper function to calculate and save the calculated frequencies and intensities in "FMCut.x","FMCut.y" and "FMChut.mat"
     TwoDimensionalCut twodimcut;
     twodimcut.setFilename("FMcut");
     twodimcut.setPlotObject(move(res));
@@ -95,7 +102,9 @@ TwoDimensionalCut.cpp
     return 0;
 }
 ```
-FM.py
+The python script below plots the dispersion relation on top
+of 
+
 ```python
 import matplotlib
 matplotlib.use('Agg')
@@ -131,31 +140,7 @@ plt.close()
 
 PowderAverage.cpp
 ```cpp
-#define _USE_MATH_DEFINES
-#include <cmath>
-#include <string>
-#include "SpinWaveGenie/SpinWaveGenie.h"
 
-using namespace std;
-using namespace SpinWaveGenie;
-
-int main()
-{
-    Cell cell;
-    cell.setBasisVectors(1.0,10.0,10.0,90.0,90.0,90.0);
-    Sublattice spin0;
-    string name0 = "Spin0";
-    spin0.setName(name0);
-    spin0.setType("NONE");
-    spin0.setMoment(1.0,0.0,0.0);
-    cell.addSublattice(spin0);
-    cell.addAtom(name0,0.0,0.0,0.0);
-
-    SpinWaveBuilder builder(cell);
-    
-    InteractionFactory interactions;
-    
-    builder.addInteraction(interactions.getExchange("J",1.0,name0,name0,0.9,1.1));
 
     SpinWave SW = builder.createElement();
     
@@ -214,3 +199,13 @@ plt.savefig('FMavg.png',dpi=400,bbox_inches='tight')
 plt.close()
 ```
 <img src="https://github.com/SpinWaveGenie/SpinWaveGenie/blob/master/examples/FMChain/FMavg.png" width="auto" height="600px" />
+
+From this directory, you can build the examples below with the following commands.
+
+```
+$ cd FMChain
+$ mkdir build
+$ cmake ..
+$ make
+```
+This should create executables `FMDispersion`, `FMcut`, and `FMPowderAverage` 
