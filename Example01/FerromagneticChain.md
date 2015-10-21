@@ -103,7 +103,7 @@ TwoDimensionalCut.cpp
 }
 ```
 The python script below plots the dispersion relation on top
-of 
+of the cut in S(Q,E).
 
 ```python
 import matplotlib
@@ -123,9 +123,6 @@ image_array = np.loadtxt('FMcut.mat')
 E_array = np.loadtxt('FMcut.y')
 x_axis = np.loadtxt('FMcut.x')
 
-print len(image_array)
-print len(image_array[0])
-print np.max(image_array)
 im = ax.pcolorfast(x_axis[:,0],E_array,image_array,vmin=0.0,vmax=1.0)
 ax.scatter(dispersion[0],dispersion[3],c='white')
 ax.set_ylabel(r'Energy (meV)')
@@ -136,6 +133,7 @@ fig.colorbar(im);
 plt.savefig('FMChain.png',dpi=400,bbox_inches='tight')
 plt.close()
 ```
+View the file 'FMChain.png` It should look like the image below.
 <img src="https://github.com/SpinWaveGenie/SpinWaveGenie/blob/master/examples/FMChain/FMChain.png" width="auto" height="600px" />
 
 PowderAverage.cpp
