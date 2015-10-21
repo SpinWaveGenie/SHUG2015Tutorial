@@ -1,10 +1,13 @@
 example files are [here](Villain)
 
-reference: http://iopscience.iop.org/0953-8984/21/21/216001
+This example studies the  generalized Villain model, calculating the FM, SC1 and SC2 phases discussed in [J. Phys.: Condens. Matter 21 216001](http://iopscience.iop.org/0953-8984/21/21/216001).
+
+FM phase
+
+In this first example, we verify that SpinWaveGenie matches the analytical expression for the energies (eqn. 21) and intensities (eqn. 23). 
 
 FMDispersion.cpp
 ```cpp
-#define _USE_MATH_DEFINES
 #include <cmath>
 #include <iostream>
 #include <string>
@@ -52,7 +55,6 @@ int main()
     //Vector3 zhat(0.0,0.0,1.0);
     //builder.addInteraction(interactions.getMagneticField("B",B/2.0,zhat,name1));
     //builder.addInteraction(interactions.getMagneticField("B",B/2.0,zhat,name3));
-
 
     SpinWave test = builder.createElement();
     
