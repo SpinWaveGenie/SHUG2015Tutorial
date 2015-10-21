@@ -1,8 +1,11 @@
 example files are [here](FMChain)
 
+For our first example, let's calculate the the spin wave dispersion 
+and S(Q,E) for a one-dimensional ferromagnetic chain. 
+
 ![Image Ferromagnetic chain](FMChain.png)
 
-Dispersion.cpp
+This first script calculates the dispersion relation along 100.
 ```cpp
 #include <cmath>
 #include <string>
@@ -43,20 +46,22 @@ int main(int argc, const char* argv[])
     // pass this interaction to the builder.
     builder.addInteraction(interactions.getExchange("J",1.0,name0,name0,0.9,1.1));
 
-    //return SpinWave object containing the cell, sublattices and interactions.
+    // Returns a SpinWave object containing the cell, sublattices and interactions.
     SpinWave test = builder.createElement();
     
+    // Generate 61 points between (0,0,0) and (3,0,0) (units: r.l.u.)
     PointsAlongLine Line;
     Line.setFirstPoint(0.0,0.0,0.0);
     Line.setFinalPoint(3.0,0.0,0.0);
     Line.setNumberPoints(61);
     ThreeVectors<double> kPoints = Line.getPoints();
     
+    // Helper function to calculate and save the calculated frequencies and intensities in "FMChain.txt"
     SpinWaveDispersion dispersion;
     dispersion.setFilename("FMChain.txt");
     dispersion.setGenie(test);
     dispersion.setPoints(kPoints);
-    
+    // The calculation occurs within the member function SpinWaveDispersion::save().
     dispersion.save();
     return 0;
 }
@@ -64,40 +69,17 @@ int main(int argc, const char* argv[])
 
 TwoDimensionalCut.cpp
 ```cpp
-#define _USE_MATH_DEFINES
-#include <cmath>
-#include <string>
-#include "SpinWaveGenie/SpinWaveGenie.h"
-using namespace std;
-using namespace SpinWaveGenie;
-
-int main()
-{
-    Cell cell;
-    cell.setBasisVectors(1.0,10.0,10.0,90.0,90.0,90.0);
-    
-    Sublattice spin0;
-    string name0 = "Spin0";
-    spin0.setName(name0);
-    spin0.setType("NONE");
-    spin0.setMoment(1.0,0.0,0.0);
-    cell.addSublattice(spin0);
-    cell.addAtom(name0,0.0,0.0,0.0);
-
-    SpinWaveBuilder builder(cell);
-    
-    InteractionFactory interactions;
-    
-    builder.addInteraction(interactions.getExchange("J",1.0,name0,name0,0.9,1.1));
-
+    // everything above this point is the same as Dispersion.cpp
     SpinWave SW = builder.createElement();
     
+    // More points generates a less pixelated images.
     PointsAlongLine Line;
     Line.setFirstPoint(0.0,0.0,0.0);
     Line.setFinalPoint(3.0,0.0,0.0);
     Line.setNumberPoints(401);
     ThreeVectors<double> kPoints = Line.getPoints();
     
+    // 
     Energies energies(0.0, 5.0, 401);
     
     OneDimensionalFactory factory;
