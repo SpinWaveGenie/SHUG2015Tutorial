@@ -1,1 +1,0 @@
-/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++    -std=c++11 -stdlib=libc++ -msse4 -Wl,-search_paths_first -Wl,-headerpad_max_install_names  CMakeFiles/YFeO3.dir/TwoDimensionalCut.cpp.o CMakeFiles/YFeO3.dir/CommonFunctions.cpp.o  -o YFeO3  /usr/local/lib/libSpinWaveGenie.dylib 
