@@ -7,7 +7,7 @@ Materials for the SpinWaveGenie tutorial at the 2015 SHUG User Meeting
  
 2. [Villain Model](Example02/VillainModel.md)
 
-3. [YFeO3](ExampleO3/YFeO3.md)
+3. [YFeO3](Example03/YFeO3.md)
 
 4. [MnCoV2O4](Example04/MnCoV2O4.md)
 
@@ -17,6 +17,6 @@ Materials for the SpinWaveGenie tutorial at the 2015 SHUG User Meeting
 
 2. [Villain Model](Exercise02/VillainModel.md)
 
-3. [YFeO3](ExerciseO3/YFeO3.md)
+3. [YFeO3](Exercise03/YFeO3.md)
 
 4. [MnCoV2O4](Exercise04/FeV2O4.md)
