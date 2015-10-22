@@ -3,9 +3,9 @@ Materials for the SpinWaveGenie tutorial at the 2015 SHUG User Meeting
 
 ## Examples
 
-1. [Ferromagnetic chain](Example01/FMChain.md)
+1. [Ferromagnetic chain](Example01/FerromagneticChain.md)
  
-2. [Villain Model](Example02/Villain.md)
+2. [Villain Model](Example02/VillainModel.md)
 
 3. [YFeO3](ExampleO3/YFeO3.md)
 
@@ -13,9 +13,9 @@ Materials for the SpinWaveGenie tutorial at the 2015 SHUG User Meeting
 
 ## Exercises
 
-1. [Antiferromagnetic chain](Exercise01/AFMChain.md)
+1. [Antiferromagnetic chain](Exercise01/AntiferromagneticChain.md)
 
-2. [Villain Model](Exercise02/Villain.md)
+2. [Villain Model](Exercise02/VillainModel.md)
 
 3. [YFeO3](ExerciseO3/YFeO3.md)
 
