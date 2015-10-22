@@ -35,3 +35,6 @@ target_include_directories(VillainSC1Dispersion SYSTEM PRIVATE ${NLOPT_INCLUDE_D
 
 add_executable(VillainFMDispersion FMDispersion.cpp)
 target_link_libraries( VillainFMDispersion SpinWaveGenie)
+
+file( COPY "SC1Dispersion.py" DESTINATION ${CMAKE_CURRENT_BINARY_DIR} )
+
