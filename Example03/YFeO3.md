@@ -1,7 +1,7 @@
 Example files are [here](YFeO3)
 
 This example studies YFeO3, calculating S(Q,E), convoluting with a resolution function, and integrating over axes directions. 
-This is published in [Phys. Rev. B 89, 014420](http://journals.aps.org/prb/abstract/10.1103/PhysRevB.89.014420)
+This is published in [Phys. Rev. B 89, 014420](http://journals.aps.org/prb/abstract/10.1103/PhysRevB.89.014420).
 
 CommonFunctions.cpp
 ```cpp
