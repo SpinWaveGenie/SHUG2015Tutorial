@@ -1,12 +1,22 @@
 # SHUG2015Tutorial
 Materials for the SpinWaveGenie tutorial at the 2015 SHUG User Meeting
 
-To run an example, change to the example's directory and type 'cmake . ' 
+## Examples
 
-1. [Ferromagnetic chain](Example01/FMChain)
+1. [Ferromagnetic chain](Example01/FMChain.md)
+ 
+2. [Villain Model](Example02/Villain.md)
 
-2. [Villain Model](Example02/Villain)
+3. [YFeO3](ExampleO3/YFeO3.md)
 
-3. [YFeO3](ExampleO3/YFeO3)
+4. [MnCoV2O4](Example04/MnCoV2O4.md)
 
-4. [MnCoV2O4](Example04/Spinels)
+## Exercises
+
+1. [Antiferromagnetic chain](Exercise01/AFMChain.md)
+
+2. [Villain Model](Exercise02/Villain.md)
+
+3. [YFeO3](ExerciseO3/YFeO3.md)
+
+4. [MnCoV2O4](Exercise04/FeV2O4.md)
