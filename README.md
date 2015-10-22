@@ -15,7 +15,7 @@ Materials for the SpinWaveGenie tutorial at the 2015 SHUG User Meeting
 
 1. [Antiferromagnetic chain](Exercise01/AntiferromagneticChain.md)
 
-2. [Villain Model](Exercise02/VillainModel.md)
+2. [Villain Model](Exercise02/SC2Dispersion.md)
 
 3. [YFeO3](Exercise03/YFeO3.md)
 
