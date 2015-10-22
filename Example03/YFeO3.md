@@ -1,8 +1,7 @@
 Example files are [here](YFeO3)
 
-Detailed description and example script coming soon!
-
-reference: http://journals.aps.org/prb/abstract/10.1103/PhysRevB.89.014420
+This example studies YFeO3, calculating S(Q,E), convoluting with a resolution function, and integrating over axes directions. 
+This is published in [Phys. Rev. B 89, 014420](http://journals.aps.org/prb/abstract/10.1103/PhysRevB.89.014420)
 
 CommonFunctions.cpp
 ```cpp
@@ -135,7 +134,7 @@ TwoDimensionalCut.cpp
 using namespace std;
 using namespace SpinWaveGenie;
 
-void alongKAxis()
+int main()
 {
     SpinWave SW = createModel();
     
@@ -177,55 +176,6 @@ void alongKAxis()
     twodimcut.setFilename("YFeO3_2_K_m2");
     twodimcut.setPoints(kPoints);
     twodimcut.save();
-}
-
-void alongLAxis()
-{
-    SpinWave SW = createModel();
-
-    PointsAlongLine Line;
-    Line.setFirstPoint(3.0,0.0,-4.0);
-    Line.setFinalPoint(3.0,0.0, 4.0);
-    Line.setNumberPoints(101);
-    ThreeVectors<double> kPoints = Line.getPoints();
-
-    Energies energies(0.0, 80.0, 201);
-
-    TwoDimGaussian resinfo;
-    resinfo.a = 579.7;
-    resinfo.b = -20.0;
-    resinfo.c = 1.3;
-    resinfo.tol = 7.0e-3;
-    resinfo.direction = Vector3(0.0,0.0,1.0);
-
-    unique_ptr<SpinWavePlot> res(new TwoDimensionResolutionFunction(resinfo, SW, energies));
-
-    HKLDirections direction;
-    direction.addDirection(1.0,0.0,0.0,0.2);
-    direction.addDirection(0.0,1.0,0.0,0.2);
-    //direction.addDirection(0.0,0.0,1.0,0.05);
-    
-    unique_ptr<SpinWavePlot> asdf(new IntegrateAxes(std::move(res),direction,7.0e-3));
-   
-    TwoDimensionalCut twodimcut;
-    twodimcut.setFilename("YFeO3_3_0_L");
-    twodimcut.setPlotObject(move(asdf));
-    twodimcut.setPoints(kPoints);
-    twodimcut.save();
-   
-    Line.setFirstPoint(3.0,1.0,-4.0);
-    Line.setFinalPoint(3.0,1.0, 4.0);
-    Line.setNumberPoints(201);
-    kPoints = Line.getPoints();
-    twodimcut.setFilename("YFeO3_3_1_L");
-    twodimcut.setPoints(kPoints);
-    twodimcut.save();
-}
-
-int main()
-{
-    alongKAxis();
-    alongLAxis();
     return 0;
 }
 ```
