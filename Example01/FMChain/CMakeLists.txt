@@ -18,6 +18,12 @@ else()
     endif()
   endif()
 endif()
+# XCode isn't picking up the standard set above.
+if(CMAKE_GENERATOR STREQUAL Xcode)
+  set(CMAKE_XCODE_ATTRIBUTE_CLANG_CXX_LANGUAGE_STANDARD "c++14")
+  set(CMAKE_XCODE_ATTRIBUTE_CLANG_CXX_LIBRARY "libc++")
+endif()
+
 
 if(NOT TARGET SpinWaveGenie)
   find_package(SpinWaveGenie)
