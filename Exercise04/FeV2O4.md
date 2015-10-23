@@ -1,1 +1,3 @@
-reference (FeV_2O_4): http://journals.aps.org/prb/abstract/10.1103/PhysRevB.86.060414
+If you feel stuck, solutions to this exercise are available here.
+
+Modify Exercise04 to calculate the spin wave dispersion of FeV2O4 published in [Phys. Rev. B. 86 060414](http://journals.aps.org/prb/abstract/10.1103/PhysRevB.86.060414).
