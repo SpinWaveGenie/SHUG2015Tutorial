@@ -10,25 +10,18 @@ fig = matplotlib.pyplot.gcf()
 fig.set_size_inches(4.0*2,3.0*2)
 ax = plt.subplot(1,1,1)
 
-#dispersion = np.transpose(np.loadtxt('FMChain.txt'))
-image1 = np.loadtxt('FMcut1.mat')
-E_array = np.loadtxt('FMcut1.y')
-x_axis = np.loadtxt('FMcut1.x')
-
-image2 = np.loadtxt('FMcut2.mat')
-image3 = np.loadtxt('FMcut2.mat')
-
+x_axis = np.loadtxt('001cut1.x')
+E_array = np.loadtxt('001cut1.y')
+image1 = np.loadtxt('001cut1.mat')
+image2 = np.loadtxt('001cut2.mat')
+image3 = np.loadtxt('001cut3.mat')
 image_array = image1+image2+image3
 
-print len(image_array)
-print len(image_array[0])
-print np.max(image_array)
 im = ax.pcolorfast(x_axis[:,2],E_array,image_array,vmin=0.0,vmax=0.3)
-#ax.scatter(dispersion[0],dispersion[3],c='white')
 ax.set_ylabel(r'Energy (meV)')
 ax.set_xlabel(r'distance $(\xi,0,0)$')
-#ax.set_xlim(left=0.0,right=3.0)
-#ax.set_ylim(bottom=0.0,top=5.0)
+ax.set_xlim(left=0.0,right=2.0)
+ax.set_ylim(bottom=0.0,top=15.0)
 fig.colorbar(im);
-plt.savefig('FMcut.png',dpi=400,bbox_inches='tight')
+plt.savefig('001cut.png',dpi=400,bbox_inches='tight')
 plt.close()

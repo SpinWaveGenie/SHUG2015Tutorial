@@ -28,7 +28,10 @@ if(NOT TARGET SpinWaveGenie)
   find_package(SpinWaveGenie)
 endif()
 
-add_executable(MnCoV2O4 main.cpp)
+add_executable(MnCoV2O4 MnCoV2O4.cpp)
 target_link_libraries( MnCoV2O4 SpinWaveGenie)
 
-#file( COPY "FM.py" DESTINATION ${CMAKE_CURRENT_BINARY_DIR} )
+file( COPY "001cut.py" DESTINATION ${CMAKE_CURRENT_BINARY_DIR} )
+file( COPY "110cut.py" DESTINATION ${CMAKE_CURRENT_BINARY_DIR} )
+file( COPY "111cut.py" DESTINATION ${CMAKE_CURRENT_BINARY_DIR} )
+

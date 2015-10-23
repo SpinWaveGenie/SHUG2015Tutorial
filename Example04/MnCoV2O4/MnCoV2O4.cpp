@@ -12,7 +12,7 @@ SpinWave getSW()
 
     double JAB = -1.8;
     double JBB = -16.0;
-    double JBBP = 19.1;
+    double JBBP = 9.1;
     double DA = 0.4;
     double DB = -9.1;
 
@@ -119,11 +119,9 @@ SpinWave getSW()
     return builder.createElement();
 }
 
-int main()
+void along111()
 {
     SpinWave SW = getSW();
-    
-
     
     Energies energies(0.0, 15.0, 201);
     
@@ -133,7 +131,41 @@ int main()
     std::unique_ptr<SpinWavePlot> res(memory::make_unique<EnergyResolutionFunction>(move(gauss), SW, energies));
     
     TwoDimensionalCut twodimcut;
-    twodimcut.setFilename("FMcut1");
+    twodimcut.setFilename("111cut1");
+    twodimcut.setPlotObject(move(res));
+    PointsAlongLine Line;
+    Line.setFirstPoint(0.5,0.5,0.5);
+    Line.setFinalPoint(1.5,1.5,1.5);
+    Line.setNumberPoints(201);
+    twodimcut.setPoints(Line.getPoints());
+    twodimcut.save();
+    
+    twodimcut.setFilename("111cut2");
+    Line.setFirstPoint(0.5,0.5,0.5);
+    Line.setFinalPoint(1.5,1.5,1.5);
+    twodimcut.setPoints(Line.getPoints());
+    twodimcut.save();
+    
+    twodimcut.setFilename("111cut3");
+    Line.setFirstPoint(0.5,0.5,0.5);
+    Line.setFinalPoint(1.5,1.5,1.5);
+    twodimcut.setPoints(Line.getPoints());
+    twodimcut.save();
+}
+
+void along001()
+{
+    SpinWave SW = getSW();
+    
+    Energies energies(0.0, 15.0, 201);
+    
+    OneDimensionalFactory factory;
+    auto gauss = factory.getGaussian(1.0,1.0e-5);
+    
+    std::unique_ptr<SpinWavePlot> res(memory::make_unique<EnergyResolutionFunction>(move(gauss), SW, energies));
+    
+    TwoDimensionalCut twodimcut;
+    twodimcut.setFilename("001cut1");
     twodimcut.setPlotObject(move(res));
     PointsAlongLine Line;
     Line.setFirstPoint(1.0,1.0,0.0);
@@ -142,17 +174,58 @@ int main()
     twodimcut.setPoints(Line.getPoints());
     twodimcut.save();
     
-    twodimcut.setFilename("FMcut2");
+    twodimcut.setFilename("001cut2");
     Line.setFirstPoint(0.0,1.0,1.0);
     Line.setFinalPoint(2.0,1.0,1.0);
     twodimcut.setPoints(Line.getPoints());
     twodimcut.save();
     
-    twodimcut.setFilename("FMcut3");
+    twodimcut.setFilename("001cut3");
     Line.setFirstPoint(1.0,0.0,1.0);
     Line.setFinalPoint(1.0,2.0,1.0);
     twodimcut.setPoints(Line.getPoints());
     twodimcut.save();
+}
+
+
+void along110()
+{
+    SpinWave SW = getSW();
     
+    Energies energies(0.0, 15.0, 201);
+    
+    OneDimensionalFactory factory;
+    auto gauss = factory.getGaussian(1.0,1.0e-5);
+    
+    std::unique_ptr<SpinWavePlot> res(memory::make_unique<EnergyResolutionFunction>(std::move(gauss), SW, energies));
+    
+    TwoDimensionalCut twodimcut;
+    twodimcut.setFilename("110cut1");
+    twodimcut.setPlotObject(move(res));
+    PointsAlongLine Line;
+    Line.setFirstPoint(1.0,1.0,0.0);
+    Line.setFinalPoint(3.0,3.0,0.0);
+    Line.setNumberPoints(201);
+    twodimcut.setPoints(Line.getPoints());
+    twodimcut.save();
+    
+    twodimcut.setFilename("110cut2");
+    Line.setFirstPoint(0.0,1.0,1.0);
+    Line.setFinalPoint(0.0,3.0,3.0);
+    twodimcut.setPoints(Line.getPoints());
+    twodimcut.save();
+    
+    twodimcut.setFilename("110cut3");
+    Line.setFirstPoint(1.0,0.0,1.0);
+    Line.setFinalPoint(3.0,0.0,3.0);
+    twodimcut.setPoints(Line.getPoints());
+    twodimcut.save();
+}
+
+int main()
+{
+    along111();
+    along001();
+    along110();
     return 0;
 }
