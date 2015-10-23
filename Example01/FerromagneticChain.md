@@ -1,11 +1,21 @@
 example files are [here](FMChain)
 
+From this directory, you can build the examples below with the following commands.
+
+```
+$ cd FMChain
+$ mkdir build
+$ cmake ..
+$ make
+```
+This should create executables `FMDispersion`, `FMcut`, and `FMPowderAverage` 
+
 For our first example, let's calculate the the spin wave dispersion 
 and S(Q,E) for a one-dimensional ferromagnetic chain. 
 
 ![Image Ferromagnetic chain](FMChain.png)
 
-This first script calculates the dispersion relation along 100.
+This first script calculates the dispersion relation along 100. It's repeated below for convenience.
 ```cpp
 #include <cmath>
 #include <string>
@@ -66,8 +76,11 @@ int main(int argc, const char* argv[])
     return 0;
 }
 ```
-Please examine "FMChain.txt". Each line is of the form. 
+After building an running, please examine "FMChain.txt". Each line is of the form. 
   H, K, L, (energies), (intensities)
+
+Direct comparison with experimental measurements is facilitated by convoluting these results
+with an instrument resolution function and plotting on a grid.
 
 TwoDimensionalCut.cpp
 ```cpp
@@ -136,6 +149,8 @@ plt.close()
 View the file 'FMChain.png` It should look like the image below.
 <img src="https://github.com/SpinWaveGenie/SpinWaveGenie/blob/master/examples/FMChain/FMChain.png" width="auto" height="600px" />
 
+Sometimes large single crystal are not available. One can also calculate a spherical average of S(|Q|,E)
+
 PowderAverage.cpp
 ```cpp
 
@@ -164,6 +179,9 @@ PowderAverage.cpp
     return 0;
 }
 ```
+
+Last is a script for plotting. The dispersion is overplotted, showing the origin of various eatures.
+
 FMavg.py
 ```python
 import matplotlib
@@ -198,12 +216,4 @@ plt.close()
 ```
 <img src="https://github.com/SpinWaveGenie/SpinWaveGenie/blob/master/examples/FMChain/FMavg.png" width="auto" height="600px" />
 
-From this directory, you can build the examples below with the following commands.
 
-```
-$ cd FMChain
-$ mkdir build
-$ cmake ..
-$ make
-```
-This should create executables `FMDispersion`, `FMcut`, and `FMPowderAverage` 
