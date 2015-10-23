@@ -96,9 +96,13 @@ int main()
 }
 ```
 
+Next, let's try repeating this calculation in the SC1 phase. This phase is described by two angles
+theta_a and theta_b, the values of which in general must be determined numerically. In this example, we
+use the [NLopt](http://ab-initio.mit.edu/wiki/index.php/NLopt) library In addition, 
+the unit cell describing this phase is twice as big.
+
 SC1Dispersion.cpp
 ```cpp
-#define _USE_MATH_DEFINES
 #include <cmath>
 #include <string>
 #include "SpinWaveGenie/SpinWaveGenie.h"
