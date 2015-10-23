@@ -4,11 +4,7 @@ This example studies Co-doped MnV2O4, calculating cuts of S(Q,E), convoluting th
 
 This work is published in [Phys. Rev. B 91 020407](https://journals.aps.org/prb/abstract/10.1103/PhysRevB.91.020407). Please open this paper in a new window/tab. Figure numbers mentioned below refer to this paper.
 
-This example is broken into multipes functions, one that defines the cell and magnetic interactions and others calculating the dispersion in certain directions.
-
-CommonFunctions.cpp
-
-Mn_{1-x}Co_xV_2O_4: 
+This example is broken into multiple functions. The first defines the cell and magnetic interactions and others calculate the spin wave dispersion in certain directions.
 
 ```cpp
 #include <cmath>
@@ -207,7 +203,6 @@ void along001()
 ![cut along 001 ](001cut.png)
 
 ```cpp
-
 void along110()
 {
     SpinWave SW = getSW();
@@ -243,3 +238,6 @@ void along110()
 }
 ```
 ![cut along 110 ](110cut.png)
+
+TODO: This this same calculation can be performed in a tetragonal cell.
+TODO: Try integrating along unseen directions and see if reasonable values have any effect on the cut.
