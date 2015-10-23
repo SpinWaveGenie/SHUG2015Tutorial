@@ -1,8 +1,10 @@
-solutions to this exercise are [here](solution)
+If you feel stuck, solutions to this exercise are available [here](solution).
 
 1. Modify [Example01](../FMChain/FerromagneticChain.md) for the 1D antiferromagnetic chain shown below.
 
-  note: You must change the value of `J`. In the solution, I use the value `J = -1.0 meV.`
+  note: You must change the value of `J` from ferromagnetic (J>0) to antiferromagnetic (J<0). 
+  In the solution, I use the value `J = -1.0 meV.`
+  
   ![Image of antiferromagnetic chain](AFMChain.png)
 
   Calculate the energies and intensities and a cut along 100.
