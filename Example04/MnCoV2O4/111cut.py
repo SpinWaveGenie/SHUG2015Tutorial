@@ -17,7 +17,7 @@ image2 = np.loadtxt('111cut2.mat')
 image3 = np.loadtxt('111cut3.mat')
 image_array = image1+image2+image3
 
-im = ax.pcolorfast(x_axis[:,2],E_array,image_array,vmin=0.0,vmax=0.4)
+im = ax.pcolorfast(x_axis[:,2],E_array,image_array,vmin=0.0,vmax=0.3)
 ax.set_ylabel(r'Energy (meV)')
 ax.set_xlabel(r'distance $(\xi,\xi,\xi)$')
 ax.set_xlim(left=0.5,right=1.5)
