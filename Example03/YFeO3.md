@@ -1,7 +1,10 @@
 Example files are [here](YFeO3)
 
-This example studies YFeO3, calculating S(Q,E), convoluting with a resolution function, and integrating over axes directions. 
-This is published in [Phys. Rev. B 89, 014420](http://journals.aps.org/prb/abstract/10.1103/PhysRevB.89.014420).
+This example studies YFeO3, calculating cuts of S(Q,E), convoluting the calculated frequencies and intensities with an instrument resolution function, and integrating over axes directions. 
+
+This work is published in [Phys. Rev. B 89, 014420](http://journals.aps.org/prb/abstract/10.1103/PhysRevB.89.014420). Please open this paper in a new window/tab. Figure numbers mentioned below refer to this paper.
+
+This example is broken into two files, one that defines the cell and magnetic interactions and 
 
 CommonFunctions.cpp
 ```cpp
@@ -126,6 +129,8 @@ SpinWaveGenie::SpinWave createModel()
     return builder.createElement();
 }
 ```
+
+The second defines the resolution function, integration directions, and axes.
 
 TwoDimensionalCut.cpp
 ```cpp
