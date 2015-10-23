@@ -1,4 +1,4 @@
-solutions to this exercise are [here](AFMChain)
+solutions to this exercise are [here](solution)
 
 1. Modify [Example01](../FMChain/FerromagneticChain.md) for the 1D antiferromagnetic chain shown below.
 
