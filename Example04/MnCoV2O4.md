@@ -1,6 +1,14 @@
 Example files are available [here](MnCoV2O4)
 
-Mn_{1-x}Co_xV_2O_4: https://journals.aps.org/prb/abstract/10.1103/PhysRevB.91.020407
+This example studies Co-doped MnV2O4, calculating cuts of S(Q,E), convoluting the calculated frequencies and intensities with an instrument resolution function.
+
+This work is published in [Phys. Rev. B 91 020407](https://journals.aps.org/prb/abstract/10.1103/PhysRevB.91.020407). Please open this paper in a new window/tab. Figure numbers mentioned below refer to this paper.
+
+This example is broken into multipes functions, one that defines the cell and magnetic interactions and others calculating the dispersion in certain directions.
+
+CommonFunctions.cpp
+
+Mn_{1-x}Co_xV_2O_4: 
 
 ```cpp
 #include <cmath>
@@ -124,6 +132,7 @@ SpinWave getSW()
     return builder.createElement();
 }
 ```
+
 ```cpp
 void along111()
 {
@@ -158,7 +167,9 @@ void along111()
     twodimcut.setPoints(Line.getPoints());
     twodimcut.save();
 }
-
+```
+![cut along 111 ](111cut.png)
+```cpp
 void along001()
 {
     SpinWave SW = getSW();
@@ -192,7 +203,10 @@ void along001()
     twodimcut.setPoints(Line.getPoints());
     twodimcut.save();
 }
+```
+![cut along 001 ](001cut.png)
 
+```cpp
 
 void along110()
 {
@@ -227,15 +241,5 @@ void along110()
     twodimcut.setPoints(Line.getPoints());
     twodimcut.save();
 }
-
-int main()
-{
-    along111();
-    along001();
-    along110();
-    return 0;
-}
 ```
-![cut along 001 ](001cut.png)
 ![cut along 110 ](110cut.png)
-![cut along 111 ](111cut.png)
