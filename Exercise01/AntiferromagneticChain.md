@@ -7,7 +7,7 @@ If you feel stuck, solutions to this exercise are available [here](solution).
   
   ![Image of antiferromagnetic chain](AFMChain.png)
 
-  Calculate the energies and intensities and a cut along 100.
+  Calculate and plot a cut of S(Q,E) along 100.
 
 2. Add an easy-plane anisotropy along 100. In the soltion, I use the value `D = 0.1 meV.`
 
