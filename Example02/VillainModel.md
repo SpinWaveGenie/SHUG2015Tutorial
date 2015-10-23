@@ -1,10 +1,10 @@
 example files are [here](Villain)
 
-This example studies the  generalized Villain model, calculating the FM, SC1 and SC2 phases discussed in [J. Phys.: Condens. Matter 21 216001](http://iopscience.iop.org/0953-8984/21/21/216001).
+This example studies the  generalized Villain model, calculating the FM, SC1 and SC2 phases discussed in [J. Phys.: Condens. Matter 21 216001](http://iopscience.iop.org/0953-8984/21/21/216001). Please open it in a new window or tab, as ffigures and equations mentioned below are from this paper.
 
 FM phase
 
-In this first example, we verify that SpinWaveGenie matches the analytical expression for the energies (eqn. 21) and intensities (eqn. 23). 
+In this first example, we verify that SpinWaveGenie matches the analytical expression for the spin wave energies (eqn. 21) and intensities (eqn. 23) of the FM phase. 
 
 FMDispersion.cpp
 ```cpp
