@@ -79,8 +79,7 @@ int main(int argc, const char* argv[])
 After building an running, please examine "FMChain.txt". Each line is of the form. 
   H, K, L, (energies), (intensities)
   
-![Image: Dispersion Ferromagnetic Chain](FMDispersion.png)
-
+<img src="FMDispersion.png" width="auto" height="600px" />  
 
 Direct comparison with experimental measurements is facilitated by convoluting these results
 with an instrument resolution function and plotting on a grid.
