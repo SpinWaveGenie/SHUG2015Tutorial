@@ -6,4 +6,4 @@ This work is published in  Figure numbers mentioned below refer to [Phys. Rev. B
 
 note: the resolution function is defined in appendix B.
 
-(optional) 2. Open [YFeO3.vts](https://www.dropbox.com/s/z4cvnmmndyr3vum/YFeO3.vts?dl=0) in ParaView and explore the 3D cut of S(Q,omega). This was generated from the experimental branch [PointsOnAPlane](https://github.com/quantumsteve/SpinWaveGenie/tree/PointsOnAPlane)
+(optional) 2. Open [YFeO3.vts](https://www.dropbox.com/s/z4cvnmmndyr3vum/YFeO3.vts?dl=0) in ParaView and explore the 3D cut of S(Q,E). This was generated from the experimental branch [PointsOnAPlane](https://github.com/quantumsteve/SpinWaveGenie/tree/PointsOnAPlane). I hope to improve upon this start and include significant integration with VTK in an upcoming version of SpinWaveGenie.
