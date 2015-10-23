@@ -78,6 +78,9 @@ int main(int argc, const char* argv[])
 ```
 After building an running, please examine "FMChain.txt". Each line is of the form. 
   H, K, L, (energies), (intensities)
+  
+![Image: Dispersion Ferromagnetic Chain](FMDispersion.png)
+
 
 Direct comparison with experimental measurements is facilitated by convoluting these results
 with an instrument resolution function and plotting on a grid.
@@ -147,7 +150,7 @@ plt.savefig('FMChain.png',dpi=400,bbox_inches='tight')
 plt.close()
 ```
 View the file 'FMChain.png` It should look like the image below.
-<img src="https://github.com/SpinWaveGenie/SpinWaveGenie/blob/master/examples/FMChain/FMChain.png" width="auto" height="600px" />
+<img src="FMCut.png" width="auto" height="600px" />
 
 Sometimes large single crystal are not available. One can also calculate a spherical average of S(|Q|,E)
 
@@ -214,6 +217,6 @@ fig.colorbar(im);
 plt.savefig('FMavg.png',dpi=400,bbox_inches='tight')
 plt.close()
 ```
-<img src="https://github.com/SpinWaveGenie/SpinWaveGenie/blob/master/examples/FMChain/FMavg.png" width="auto" height="600px" />
+<img src="FMPowderAverage.png" width="auto" height="600px" />
 
 
