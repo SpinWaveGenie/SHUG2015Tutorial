@@ -5,6 +5,7 @@ From this directory, you can build the examples below with the following command
 ```
 $ cd FMChain
 $ mkdir build
+$ cd build
 $ cmake ..
 $ make
 ```
