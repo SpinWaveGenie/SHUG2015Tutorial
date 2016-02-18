@@ -19,4 +19,4 @@ Materials for the SpinWaveGenie tutorial at the 2015 SHUG User Meeting
 
 3. [YFeO3](Exercise03/YFeO3.md)
 
-4. [MnCoV2O4](Exercise04/FeV2O4.md)
+4. [FeV2O4](Exercise04/FeV2O4.md)
